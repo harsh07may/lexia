@@ -21,39 +21,41 @@ export default function Home() {
         <h1 className="max-w-[480px] text-center text-xl font-bold text-neutral-600 lg:text-3xl">
           Learn, Practise and master new languages with Lexia.
         </h1>
-        <ClerkLoading>
-          <Loader2 className="h-5 w-5 animate-spin text-muted-foreground" />
-        </ClerkLoading>
+        <div className="flex w-full max-w-[330px] flex-col items-center gap-y-3">
+          <ClerkLoading>
+            <Loader2 className="h-5 w-5 animate-spin text-muted-foreground" />
+          </ClerkLoading>
 
-        <ClerkLoaded>
-          <SignedOut>
-            <SignUpButton
-              mode="modal"
-              afterSignInUrl="/learn"
-              afterSignUpUrl="/learn"
-            >
-              <Button size="lg" variant="secondary">
-                Get Started
+          <ClerkLoaded>
+            <SignedOut>
+              <SignUpButton
+                mode="modal"
+                afterSignInUrl="/learn"
+                afterSignUpUrl="/learn"
+              >
+                <Button size="lg" variant="secondary">
+                  Get Started
+                </Button>
+              </SignUpButton>
+
+              <SignInButton
+                mode="modal"
+                afterSignInUrl="/learn"
+                afterSignUpUrl="/learn"
+              >
+                <Button size="lg" variant="primaryOutline">
+                  I already have an account
+                </Button>
+              </SignInButton>
+            </SignedOut>
+
+            <SignedIn>
+              <Button size="lg" variant="secondary" className="w-full" asChild>
+                <Link href="/learn">Continue Learning</Link>
               </Button>
-            </SignUpButton>
-
-            <SignInButton
-              mode="modal"
-              afterSignInUrl="/learn"
-              afterSignUpUrl="/learn"
-            >
-              <Button size="lg" variant="primaryOutline">
-                I already have an account
-              </Button>
-            </SignInButton>
-          </SignedOut>
-
-          <SignedIn>
-            <Button size="lg" variant="secondary" className="w-full" asChild>
-              <Link href="/learn">Continue Learning</Link>
-            </Button>
-          </SignedIn>
-        </ClerkLoaded>
+            </SignedIn>
+          </ClerkLoaded>
+        </div>
       </div>
     </div>
   );
