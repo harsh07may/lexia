@@ -15,5 +15,8 @@
    - Create a footer with flags-icons fromFlagpack.
 
 4. Create a LearnPage for signed in users.
+
    - Create a main route group with a layout.
    - Create a sidebar and a mobile-nav.
+
+5. Create the Actual Learn Page
