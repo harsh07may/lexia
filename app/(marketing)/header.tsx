@@ -1,4 +1,5 @@
-import { Button } from "@/components/ui/button";
+import Image from "next/image";
+
 import {
   ClerkLoaded,
   ClerkLoading,
@@ -8,8 +9,8 @@ import {
   UserButton,
 } from "@clerk/nextjs";
 import { Loader2 } from "lucide-react";
-import Image from "next/image";
 
+import { Button } from "@/components/ui/button";
 const Header = () => {
   return (
     <header className="h-20 w-full border-b-2 border-slate-200 px-4">
