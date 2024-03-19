@@ -20,3 +20,11 @@
    - Create a sidebar and a mobile-nav.
 
 5. Create the Actual Learn Page
+
+   - Create a FeedWrapper thats a scrollable wrapper.
+   - Create a Sticky Wrapper that will be fixed even when Feed is scrolled.
+   - Create a header for Learn(main) page which will contain Hearts, Energy etc.
+
+6. Create and Connect to the db
+   - Create a serverless db using Neon.
+   - Install Drizzle orm and connect to the db.
