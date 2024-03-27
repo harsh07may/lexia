@@ -1,23 +1,17 @@
 import { cache } from "react";
 
-import { courses, userProgress } from "./schema";
-import db from "./drizzle";
 import { auth } from "@clerk/nextjs";
-import { and, eq, like } from "drizzle-orm";
+import { eq } from "drizzle-orm";
 
+import db from "./drizzle";
+import { courses, userProgress } from "./schema";
+
+/** Get userProgress of current auth user. */
 export const getUserProgress = cache(async () => {
   const { userId } = await auth();
-
   if (!userId) {
     return null;
   }
-  // const query = await db
-  //   .select()
-  //   .from(userProgress)
-  //   .leftJoin(courses, eq(userProgress.userId, courses.id))
-  //   .where(eq(userProgress.userId, userId))
-  //   .limit(1);
-  // const queryData = query[0];
 
   const data = await db.query.userProgress.findFirst({
     where: eq(userProgress.userId, userId),
@@ -25,15 +19,20 @@ export const getUserProgress = cache(async () => {
       activeCourse: true,
     },
   });
-
   return data;
 });
 
+/** Get a list of all courses. */
 export const getCourses = cache(async () => {
-  // Using SQL-like syntax.
-  const data = await db.select().from(courses);
+  const data = await db.query.courses.findMany();
+  return data;
+});
 
-  // Using Query Syntax.
-  // const data2 = await db.query.courses.findMany();
+/** Get course by id. */
+export const getCourseById = cache(async (courseId: number) => {
+  const data = await db.query.courses.findFirst({
+    where: eq(courses.id, courseId),
+    // Todo: Populate units and lessons.
+  });
   return data;
 });
