@@ -1,8 +1,8 @@
-# Lexia
+# Lexia - Immersive Language Learning Companion
 
-_Your Immersive Language Learning Companion._
+![Lexia Logo](/public/mascot-lexia.svg)
 
-Lexia is a web application designed to revolutionize the way you learn languages. Our interactive platform offers:
+**Lexia** is a web application designed to revolutionize the way you learn languages. Our interactive platform offers:
 
 - **Personalized Learning Paths:** Tailored content based on your skill level and goals.
 - **Gamified Lessons:** Engaging exercises that make learning fun.
