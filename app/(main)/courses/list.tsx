@@ -7,6 +7,8 @@ import { courses, userProgress } from "@/db/schema";
 import { Card } from "./card";
 import { upsertUserProgress } from "@/actions/user-progress";
 import { toast } from "sonner";
+import Image from "next/image";
+import { CircleX } from "lucide-react";
 
 type Props = {
   courses: (typeof courses.$inferSelect)[];
@@ -32,17 +34,23 @@ export const List = ({ courses, activeCourseId }: Props) => {
 
   return (
     <div className="grid grid-cols-2 gap-4 pt-6 lg:grid-cols-[repeat(auto-fill,minmax(210px,1fr))]">
-      {courses.map((course) => (
-        <Card
-          key={course.id}
-          id={course.id}
-          title={course.title}
-          imgSrc={course.imgSrc}
-          onClick={onClick}
-          disabled={false}
-          active={course.id === activeCourseId}
-        />
-      ))}
+      {courses.length > 0 ? (
+        courses.map((course) => (
+          <Card
+            key={course.id}
+            id={course.id}
+            title={course.title}
+            imgSrc={course.imgSrc}
+            onClick={onClick}
+            disabled={false}
+            active={course.id === activeCourseId}
+          />
+        ))
+      ) : (
+        <div className="flex w-full font-semibold">
+          {" No Courses found! :("}
+        </div>
+      )}
     </div>
   );
 };
