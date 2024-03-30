@@ -40,7 +40,7 @@ export const List = ({ courses, activeCourseId }: Props) => {
             key={course.id}
             id={course.id}
             title={course.title}
-            imgSrc={course.imgSrc}
+            imgSrc={course.imageSrc}
             onClick={onClick}
             disabled={false}
             active={course.id === activeCourseId}
